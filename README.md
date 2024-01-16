@@ -16,11 +16,11 @@ Below are the scripts for each experiment mentioned in our paper:
 
 | Method    | Source Dataset    | Target Dataset    | Script                                                             |
 | --------- | ----------------- | ----------------- | ------------------------------------------------------------------ |
-| *Sup*     | --                | Schubert  Wagner  | experiments/<target_dataset>/supervised.py                         |
-| *T*       | MAESTRO           | Schubert, Wagner  | experiments/<target_dataset>/teacher.py                            |
-| *TS*      | MAESTRO           | Schubert, Wagner  | experiments/<target_dataset>/teacher_student.py                    |
-| *TS-CV1*  | MAESTRO           | Schubert, Wagner  | experiments/<target_dataset>/teacher_student_cross_version_1.py    |
-| *TS-CV2*  | MAESTRO           | Schubert, Wagner  | experiments/<target_dataset>/teacher_student_cross_version_2.py    |
+| *Sup*     | --                | Schubert  Wagner  | experiments/target_dataset/supervised.py                         |
+| *T*       | MAESTRO           | Schubert, Wagner  | experiments/target_dataset/teacher.py                            |
+| *TS*      | MAESTRO           | Schubert, Wagner  | experiments/target_dataset/teacher_student.py                    |
+| *TS-CV1*  | MAESTRO           | Schubert, Wagner  | experiments/target_dataset/teacher_student_cross_version_1.py    |
+| *TS-CV2*  | MAESTRO           | Schubert, Wagner  | experiments/target_dataset/teacher_student_cross_version_2.py    |
 
 ## Environments configuration
 
