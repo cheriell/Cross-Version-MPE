@@ -14,8 +14,8 @@ The teacher model is trained using script `experiments/teacher_maestro.py`.
 
 Below are the scripts for each experiment mentioned in our paper:
 
-| Method    | Source Dataset    | Target Dataset    | Script                                                             |
-| --------- | ----------------- | ----------------- | ------------------------------------------------------------------ |
+| Method    | Source Dataset    | Target Dataset    | Script                                                           |
+| --------- | ----------------- | ----------------- | ---------------------------------------------------------------- |
 | *Sup*     | --                | Schubert  Wagner  | experiments/target_dataset/supervised.py                         |
 | *T*       | MAESTRO           | Schubert, Wagner  | experiments/target_dataset/teacher.py                            |
 | *TS*      | MAESTRO           | Schubert, Wagner  | experiments/target_dataset/teacher_student.py                    |
