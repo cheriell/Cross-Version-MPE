@@ -4,7 +4,7 @@ Accompanying code for paper submission "Utilizing Cross-Version Consistency for 
 
 ## Datasets and feature preparation
 
-We use the [Schubert Winterreise Dataset](https://zenodo.org/records/3968389) and the [Wagner Ring Dataset](https://zenodo.org/records/7672157) in our case study. 
+We use the [MAESTRO Dataset](https://magenta.tensorflow.org/datasets/maestro), the [Schubert Winterreise Dataset](https://zenodo.org/records/3968389) and the [Wagner Ring Dataset](https://zenodo.org/records/7672157) in our case study. 
 
 During feature preparation, we calculate the HCQT spectrogram and binary pianoroll for each of the music performance. We provide one example input-output pair of feature in the folder `example_precomputed_features`.
 
