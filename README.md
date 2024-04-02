@@ -2,7 +2,7 @@
 
 Here we provide the accompanying code for our tiny paper 
 
-- Lele Liu and Christof Weiss, “Utilizing cross-version consistency for domain adaptation: A case study on music audio,” in Tiny Papers Track at International Conference on Learning Representations (Tiny Papers @ ICLR), May 2024.
+- Lele Liu and Christof Weiss, "[Utilizing cross-version consistency for domain adaptation: A case study on music audio](https://openreview.net/forum?id=ZNg3YQQKWT),” in Tiny Papers Track at International Conference on Learning Representations (Tiny Papers @ ICLR), May 2024.
 
 ## Datasets and feature preparation
 
