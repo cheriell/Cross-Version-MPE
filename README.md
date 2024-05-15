@@ -30,7 +30,9 @@ Below are the scripts for each experiment mentioned in our paper:
 
 We use [synctoolbox](https://github.com/meinardmueller/synctoolbox) to calculate the alignment path between different versions. The python environment is the one provided by the toolbox (copied in file `environment-synctoolbox.yml`). Please use this python environment to run the feature preparation script `eature_preparation/prepare_cross_version_alignment.py`.
 
-For running the experiments, please use the provided `Dockerfile` to build the Docker image.
+For running the experiments, please use the provided `Dockerfile` to build the Docker image. You can also pull the docker image by
+
+    docker pull cheriell/cross-version-mpe:0.0.2
 
 ## Running instruction
 
