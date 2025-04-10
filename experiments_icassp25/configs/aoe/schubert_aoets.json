@@ -1,0 +1,113 @@
+{
+    "dataset": "schubert",
+    "method": "AoE-TS",
+    "_comment": "Using teacher-student learning on the AoE MPE backend.",
+
+    "devices": [0],
+
+    "data_params": {
+        "train_dataset_params": {
+            "context": 75,
+            "stride": 50,
+            "stride_comment": "Stride is not used, we random sample time frames during training.",
+            "compression": 10,
+            "augmentation": {
+                "transpsemitones": 5,
+                "randomeq": 20,
+                "noisestd": 1e-4,
+                "tuning": true
+            }
+        },
+        "val_dataset_params": {
+            "context": 75,
+            "stride": 50,
+            "compression": 10
+        },
+        "test_dataset_params": {
+            "context": 75,
+            "stride": 1,
+            "compression": 10
+        },
+
+        "train_loader_params": {
+            "batch_size": 25,
+            "num_workers": 0
+        },
+        "val_loader_params": {
+            "batch_size": 25,
+            "num_workers": 0
+        },
+        "test_loader_params": {
+            "batch_size": 25,
+            "num_workers": 0
+        }
+    },
+
+    "model_params": {
+        "ae_layers": 3
+    },
+
+    "training_params": {
+
+        "max_epochs": 100,
+        "max_epochs_comment": "We use a larger number since the Schubert dataset is smaller.",
+
+        "criterion_params": {
+            "name": "binary_cross_entropy_with_logits",
+            "reduction": "mean"
+        },
+        "optimizer_params": {
+            "name": "AdamW",
+            "initial_lr": 2e-4,
+            "betas": [0.9, 0.999],
+            "eps": 1e-08,
+            "weight_decay": 0.01,
+            "amsgrad": false
+        },
+        "scheduler_params": {
+            "use_scheduler": true,
+            "name": "ReduceLROnPlateau",
+            "mode": "min",
+            "factor": 0.5,
+            "patience": 5,
+            "threshold": 1e-3,
+            "threshold_mode": "rel",
+            "cooldown": 0,
+            "min_lr": 1e-6,
+            "eps": 1e-08,
+            "verbose": false
+        },
+        "early_stopping_params": {
+            "use_early_stopping": true,
+            "mode": "min",
+            "min_delta": 1e-5,
+            "patience": 36,
+            "percentage": false
+        },
+        "early_stopping_params_comment": "We use a larger patience since the Schubert dataset is smaller."
+    },
+    
+    "eval_params": {
+        "eval_threshold": 0.4,
+        "eval_measures": [
+            "precision", "recall", "f_measure", 
+            "cosine_sim", "binary_crossentropy", "euclidean_distance",
+            "binary_accuracy", "soft_accuracy", "accum_energy",
+            "roc_auc_measure", "average_precision_score"
+        ]
+    },
+
+    "path_configs": {
+        "path_x_train": "{segmented_features_path_schubert}/{hcqt_folder}",
+        "path_y_train": "{path_pseudo_labels}",
+        "path_x_test": "{segmented_features_path_schubert}/{hcqt_folder}",
+        "path_y_test": "{segmented_features_path_schubert}/{pitch_folder}",
+
+        "path_model": "{workspace}/experiments/aoe/models/schubert_aoets-{runname}.pt",
+        "path_result": "{workspace}/experiments/aoe/results/schubert_aoets-{runname}.csv",
+        "path_log": "{workspace}/experiments/aoe/logs/schubert_aoets-{runname}.txt",
+        "path_config": "{workspace}/experiments/aoe/configs/schubert_aoets-{runname}.json",
+
+        "path_valid_frames": null
+    }
+}

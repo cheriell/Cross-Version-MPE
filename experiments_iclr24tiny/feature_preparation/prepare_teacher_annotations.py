@@ -1,5 +1,5 @@
 import os, sys
-sys.path.insert(0, os.path.join(sys.path[0], '../'))
+sys.path.insert(0, os.path.join(sys.path[0], '../../'))
 import numpy as np, os, scipy, scipy.spatial, matplotlib.pyplot as plt, IPython.display as ipd
 from numba import jit
 import librosa

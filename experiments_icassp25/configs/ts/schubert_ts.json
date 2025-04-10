@@ -1,0 +1,120 @@
+{
+    "dataset": "schubert",
+    "method": "teacher-student",
+    "_comment": "Teacher-student learning on the Schubert dataset",
+
+    "device": "cuda:0",
+    
+    "train_dataset_params": {
+        "context": 75,
+        "stride":  50,
+        "compression": 10,
+        "aug:transpsemitones": 5,
+        "aug:randomeq": 20,
+        "aug:noisestd": 1e-4,
+        "aug:tuning": true
+    },
+    "val_dataset_params": {
+        "context": 75,
+        "stride": 50,
+        "compression": 10
+    },
+    "test_dataset_params": {
+        "context": 75,
+        "stride": 1,
+        "compression": 10
+    },
+
+    "train_loader_params": {
+        "batch_size": 25,
+        "shuffle": true,
+        "num_workers": 16
+    },
+    "val_loader_params": {
+        "batch_size": 50,
+        "shuffle": false,
+        "num_workers": 16
+    },
+    "test_loader_params": {
+        "batch_size": 50,
+        "shuffle": false,
+        "num_workers": 8
+    },
+
+    "model_params": {
+        "min_pitch": 24,
+        "n_chan_input": 6,
+        "n_chan_layers": [70, 70, 50, 10],
+        "n_prefilt_layers": 5,
+        "residual": true,
+        "n_bins_in": 216,
+        "n_bins_in_comment": "num_octaves(6)*12*3",
+        "n_bins_out": 72,
+        "a_lrelu": 0.3,
+        "p_dropout": 0.2
+    },
+
+    "training_params": {
+
+        "max_epochs": 100,
+        
+        "criterion_params": {
+            "name": "binary_cross_entropy",
+            "reduction": "mean"
+        },
+        "optimizer_params": {
+            "name": "AdamW",
+            "initial_lr": 0.0002,
+            "betas": [0.9, 0.999],
+            "eps": 1e-08,
+            "weight_decay": 0.01,
+            "amsgrad": false
+        },
+        "scheduler_params": {
+            "use_scheduler": true,
+            "name": "ReduceLROnPlateau",
+            "mode": "min",
+            "factor": 0.5,
+            "patience": 5,
+            "threshold": 0.0001,
+            "threshold_mode": "rel",
+            "cooldown": 0,
+            "min_lr": 1e-6,
+            "eps": 1e-08,
+            "verbose": false
+        },
+        "early_stopping_params": {
+            "use_early_stopping": true,
+            "mode": "min",
+            "min_delta": 1e-5,
+            "patience": 12,
+            "percentage": false
+        }
+    },
+
+    "eval_params": {
+        "eval_threshold": 0.4,
+        "eval_measures": [
+            "precision", "recall", "f_measure", 
+            "cosine_sim", "binary_crossentropy", "euclidean_distance",
+            "binary_accuracy", "soft_accuracy", "accum_energy",
+            "roc_auc_measure", "average_precision_score"
+        ]
+    },
+
+    "path_configs": {
+        "path_x": "{segmented_features_path_schubert}/{hcqt_folder}",
+        "path_y": "{workspace}/segmented_pseudo_labels/schubert_rescnn",
+        "path_x_test": "{segmented_features_path_schubert}/{hcqt_folder}",
+        "path_y_test": "{segmented_features_path_schubert}/{pitch_folder}",
+
+        "path_model": "{workspace}/experiments/models/schubert_ts-{runname}.pt",
+        "path_result": "{workspace}/experiments/results/schubert_ts-{runname}.csv",
+        "path_log": "{workspace}/experiments/logs/schubert_ts-{runname}.txt",
+        "path_config": "{workspace}/experiments/configs/schubert_ts-{runname}.json",
+
+        "path_valid_frames": null
+    }
+}
+
+

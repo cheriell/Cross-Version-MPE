@@ -1,0 +1,54 @@
+{
+    "dataset": "schubert",
+    "method": "teacher",
+    "_comment": "Using the teacher model to predict on the test set.",
+
+    "device": "cuda:0",
+
+    "test_dataset_params": {
+        "context": 75,
+        "stride": 1,
+        "compression": 10
+    },
+    "test_loader_params": {
+        "batch_size": 50,
+        "shuffle": false,
+        "num_workers": 8
+    },
+
+    "model_params": {
+        "min_pitch": 24,
+        "n_chan_input": 6,
+        "n_chan_layers": [70, 70, 50, 10],
+        "n_prefilt_layers": 5,
+        "residual": true,
+        "n_bins_in": 216,
+        "n_bins_in_comment": "num_octaves(6)*12*3",
+        "n_bins_out": 72,
+        "a_lrelu": 0.3,
+        "p_dropout": 0.2
+    },
+
+    "eval_params": {
+        "eval_threshold": 0.4,
+        "eval_measures": [
+            "precision", "recall", "f_measure", 
+            "cosine_sim", "binary_crossentropy", "euclidean_distance",
+            "binary_accuracy", "soft_accuracy", "accum_energy",
+            "roc_auc_measure", "average_precision_score"
+        ]
+    },
+
+    "path_configs": {
+        "path_x_test": "{segmented_features_path_schubert}/{hcqt_folder}",
+        "path_y_test": "{segmented_features_path_schubert}/{pitch_folder}",
+
+        "path_model": "{workspace}/experiments/models/maestro_sup-run0.pt",
+        "path_result": "{workspace}/experiments/results/schubert_t-{runname}.csv",
+        "path_log": "{workspace}/experiments/logs/schubert_t-{runname}.txt",
+        "path_config": "{workspace}/experiments/configs/schubert_t-{runname}.json",
+
+        "path_valid_frames": null
+    }
+
+}
