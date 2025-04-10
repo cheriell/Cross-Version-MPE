@@ -39,7 +39,7 @@ Summary table of the experiments:
 
 Before running the domain adaptation experiments, the teacher model is trained using script `experiments_iclr24tiny/teacher_maestro.py`.
 
-Please refer to the `runme_iclr24tiny.sh` for detailed commands (including feature preparation) to run the experiments.
+Please refer to the `experiments_iclr24tiny.sh` for detailed pipeline (including feature preparation) to run the experiments.
 
 For the ICLR 2024 tiny paper, we uploaded the model checkpoints and pre-calculated features for the test sets at:
 - Liu, L., & Weiß, C. (2024). Utilizing Cross-Version Consistency for Domain Adaptation: A Case Study on Music Audio (Pretrained Models and Features) (0.0.1). Zenodo. https://doi.org/10.5281/zenodo.10936492
@@ -62,4 +62,4 @@ The source dataset is always MAESTRO. For the Wagner Ring Dataset, we used a dif
 
 Main python scripts are in folder `experiments_icassp25/main`.
 
-Please refer to `runme_icassp25.sh` for detaild commands (including feature preparation) to run the experiments.
+Please refer to `experiments_icassp25.sh` for detaild pipeline (including feature preparation) to run the experiments.
