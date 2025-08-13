@@ -8,8 +8,8 @@ import numpy as np
 import os, sys
 sys.path.insert(0, os.path.join(sys.path[0], '../..'))
 
-from experiments.models.basic_cnns import deep_cnn_segm_sigmoid
-from experiments.feature_preparation.utils import segment_feature, get_feature_segment_fn, get_feature_segment_metainfo_fn
+from experiments_icassp25.models.basic_cnns import deep_cnn_segm_sigmoid
+from experiments_icassp25.feature_preparation.utils import segment_feature, get_feature_segment_fn, get_feature_segment_metainfo_fn
 
 
 model_params = {

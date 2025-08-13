@@ -7,7 +7,7 @@ sys.path.insert(0, os.path.join(sys.path[0], '../..'))
 import pandas as pd
 import json
 
-from experiments.feature_preparation.utils import get_version_pairs_fn, get_fn_by_song_version, get_fn_aligned
+from experiments_icassp25.feature_preparation.utils import get_version_pairs_fn, get_fn_by_song_version, get_fn_aligned
 from dataset_splits import (
     train_songs_wagner, train_versions_wagner,
     val_songs_wagner, val_versions_wagner,

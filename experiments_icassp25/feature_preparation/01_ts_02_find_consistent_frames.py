@@ -10,7 +10,7 @@ import json
 import multiprocessing as mp
 from pathos.multiprocessing import ProcessingPool as Pool
 
-from experiments.feature_preparation.utils import (
+from experiments_icassp25.feature_preparation.utils import (
     get_version_pairs_fn,
     get_warping_path_folder,
     get_consistent_frames_fn,

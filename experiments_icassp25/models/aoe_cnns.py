@@ -109,19 +109,13 @@ class encoder_cnn(torch.nn.Module):
             nn.Dropout(p=p_dropout)
         )
         self.prefilt_list = nn.ModuleList()
-        for _ in range(1, ae_layers-1):
+        for _ in range(1, ae_layers):
             self.prefilt_list.append(nn.Sequential(
                 nn.Conv2d(in_channels=n_ch[0], out_channels=n_ch[0], kernel_size=(15,15), padding=(7,7), stride=(1,1)),
                 nn.LeakyReLU(negative_slope=a_lrelu),
                 nn.MaxPool2d(kernel_size=(3,1), stride=(1,1), padding=(1,0)),
                 nn.Dropout(p=p_dropout)
             ))
-        self.prefilt_list.append(nn.Sequential(
-            nn.Conv2d(in_channels=n_ch[0], out_channels=6, kernel_size=(15,15), padding=(7,7), stride=(1,1)),
-            nn.LeakyReLU(negative_slope=a_lrelu),
-            nn.MaxPool2d(kernel_size=(3,1), stride=(1,1), padding=(1,0)),
-            nn.Dropout(p=p_dropout)
-        ))
 
     def forward(self, x):
         x = self.conv(x)
@@ -146,12 +140,7 @@ class decoder_cnn(torch.nn.Module):
         self.ae_layers = ae_layers
 
         self.prefilt_list = nn.ModuleList()
-        self.prefilt_list.append(nn.Sequential(
-            nn.Conv2d(in_channels=6, out_channels=n_ch[0], kernel_size=(15, 15), padding=(7, 7), stride=(1, 1)),
-            nn.LeakyReLU(negative_slope=a_lrelu),
-            nn.Dropout(p=p_dropout)
-        ))
-        for _ in range(2, ae_layers):
+        for _ in range(1, ae_layers):
             self.prefilt_list.append(nn.Sequential(
                 nn.Conv2d(in_channels=n_ch[0], out_channels=n_ch[0], kernel_size=(15, 15), padding=(7, 7), stride=(1, 1)),
                 nn.LeakyReLU(negative_slope=a_lrelu),
@@ -185,9 +174,9 @@ class mpe_model_backend(torch.nn.Module):
         self.ae_layers = ae_layers
 
         self.prefilt_list = nn.ModuleList()
-        for i in range(ae_layers, n_prefilt_layers):
+        for _ in range(ae_layers, n_prefilt_layers):
             self.prefilt_list.append(nn.Sequential(
-                nn.Conv2d(in_channels=6 if i == ae_layers else n_ch[0], out_channels=n_ch[0], kernel_size=(15,15), padding=(7,7), stride=(1,1)),
+                nn.Conv2d(in_channels=n_ch[0], out_channels=n_ch[0], kernel_size=(15,15), padding=(7,7), stride=(1,1)),
                 nn.LeakyReLU(negative_slope=a_lrelu),
                 nn.MaxPool2d(kernel_size=(3,1), stride=(1,1), padding=(1,0)),
                 nn.Dropout(p=p_dropout)

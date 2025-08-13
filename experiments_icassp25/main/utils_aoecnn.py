@@ -6,14 +6,14 @@ sys.path.insert(0, os.path.join(sys.path[0], '../..'))
 import pandas as pd
 import numpy as np
 
-from experiments.main.utils import (
+from experiments_icassp25.main.utils import (
     BaseLightningModule,
     path_from_config,
     update_log_file,
     get_criterion_fn,
 )
-from experiments.models.aoe_cnns import aoe_cnn_model_no_recon
-from experiments.eval_metrics import calculate_eval_measures
+from experiments_icassp25.models.aoe_cnns import aoe_cnn_model_no_recon
+from experiments_icassp25.eval_metrics import calculate_eval_measures
 
 
 #######################################################

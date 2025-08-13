@@ -8,8 +8,8 @@ import numpy as np
 import os, sys
 sys.path.insert(0, os.path.join(sys.path[0], '../..'))
 
-from experiments.models.aoe_cnns import aoe_cnn_model
-from experiments.feature_preparation.utils import get_feature_segment_fn, get_feature_segment_metainfo_fn, get_x_context_by_segment_idx
+from experiments_icassp25.models.aoe_cnns import aoe_cnn_model
+from experiments_icassp25.feature_preparation.utils import get_feature_segment_fn, get_feature_segment_metainfo_fn, get_x_context_by_segment_idx
 
 
 # Model parameters

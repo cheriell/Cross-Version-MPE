@@ -4,17 +4,17 @@ import os
 import torch
 import numpy as np
 
-from experiments.feature_preparation.utils import (
+from experiments_icassp25.feature_preparation.utils import (
     get_feature_segment_metainfo_fn,
     extend_fn,
 )
-from experiments.data_loaders.utils import (
+from experiments_icassp25.data_loaders.utils import (
     load_sample_from_segmented_feature,
     data_augmentation,
     HalfHalfSampler,
 )
-from experiments.main.utils import path_from_config, update_log_file
-from experiments.models.aoe_cnns import min_pitch, n_bins_out
+from experiments_icassp25.main.utils import path_from_config, update_log_file
+from experiments_icassp25.models.aoe_cnns import min_pitch, n_bins_out
 
 
 ##################################################

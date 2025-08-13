@@ -2,7 +2,7 @@ import numpy as np
 import os
 import torch
 
-from experiments.feature_preparation.utils import (
+from experiments_icassp25.feature_preparation.utils import (
     get_feature_segment_fn
 )
 

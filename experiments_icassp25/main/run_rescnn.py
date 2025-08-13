@@ -11,11 +11,11 @@ from torchinfo import summary
 import numpy as np
 import pandas as pd
 
-from experiments.models.basic_cnns import deep_cnn_segm_sigmoid
-from experiments.main.utils import Experiment, path_from_config
-from experiments.data_loaders.mpe_dataloaders import get_mpe_dataloader
-from experiments.eval_metrics import calculate_eval_measures
-from experiments.feature_preparation.utils import get_version_pairs_fn
+from experiments_icassp25.models.basic_cnns import deep_cnn_segm_sigmoid
+from experiments_icassp25.main.utils import Experiment, path_from_config
+from experiments_icassp25.data_loaders.mpe_dataloaders import get_mpe_dataloader
+from experiments_icassp25.eval_metrics import calculate_eval_measures
+from experiments_icassp25.feature_preparation.utils import get_version_pairs_fn
 
 def main(args):
 

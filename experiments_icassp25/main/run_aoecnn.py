@@ -15,16 +15,16 @@ import pandas as pd
 import wandb
 wandb.login()
 
-from experiments.models.aoe_cnns import aoe_cnn_model, aoe_cnn_model_no_recon
-from experiments.main.utils import (
+from experiments_icassp25.models.aoe_cnns import aoe_cnn_model, aoe_cnn_model_no_recon
+from experiments_icassp25.main.utils import (
     BaseLightningModule,
     get_criterion_fn,
     path_from_config,
     update_log_file,
 )
-from experiments.data_loaders.aoe_dataloaders import AoEDataModule
-from experiments.eval_metrics import calculate_eval_measures
-from experiments.feature_preparation.utils import get_version_pairs_fn
+from experiments_icassp25.data_loaders.aoe_dataloaders import AoEDataModule
+from experiments_icassp25.eval_metrics import calculate_eval_measures
+from experiments_icassp25.feature_preparation.utils import get_version_pairs_fn
 
 
 #######################################################
@@ -103,7 +103,7 @@ class aoe_cnn_lightning_module(BaseLightningModule):
 
         # Update the Log file
         update_log_file(self.path_log, "Model: {}".format(self.model.__class__.__name__))
-        update_log_file(self.path_log, "\n{}".format(str(summary(self.model, input_size=(1, 6, 174, 216)))))
+        update_log_file(self.path_log, "\n{}".format(str(summary(self.model, input_size=(1, 6, 75, 216)))))
 
         # Loss functions and weights
         self.criterion_fn_mpe = get_criterion_fn(self.exp_configs['training_params']['criterion_mpe_params'])

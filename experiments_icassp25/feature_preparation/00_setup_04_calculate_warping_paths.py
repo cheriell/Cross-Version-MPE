@@ -11,7 +11,7 @@ from synctoolbox.dtw.mrmsdtw import sync_via_mrmsdtw
 import multiprocessing as mp
 from pathos.multiprocessing import ProcessingPool as Pool
 
-from experiments.feature_preparation.utils import get_warping_path_folder, get_version_pairs_fn
+from experiments_icassp25.feature_preparation.utils import get_warping_path_folder, get_version_pairs_fn
 
 
 def main(args):

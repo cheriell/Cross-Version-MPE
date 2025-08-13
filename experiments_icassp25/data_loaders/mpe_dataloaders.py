@@ -4,7 +4,7 @@ import os
 import numpy as np
 import pandas as pd
 
-from experiments.feature_preparation.utils import (
+from experiments_icassp25.feature_preparation.utils import (
     get_feature_segment_fn,
     get_feature_segment_metainfo_fn,
     get_version_pairs_fn,

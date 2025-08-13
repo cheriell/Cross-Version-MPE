@@ -9,7 +9,7 @@ import json
 import multiprocessing as mp
 from pathos.multiprocessing import ProcessingPool as Pool
 
-from experiments.feature_preparation.utils import (
+from experiments_icassp25.feature_preparation.utils import (
     segment_feature,
     get_feature_segment_fn,
     get_feature_segment_metainfo_fn,
